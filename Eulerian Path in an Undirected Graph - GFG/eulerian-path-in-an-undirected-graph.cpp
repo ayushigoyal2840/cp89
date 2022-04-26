@@ -23,7 +23,7 @@ public:
            }
            if(cnt&1) ans++;
        }
-       return (ans==1 or ans==2);
+       return (ans==0 or ans==2);
     }
 };
 
