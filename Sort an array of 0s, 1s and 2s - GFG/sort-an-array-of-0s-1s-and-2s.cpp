@@ -10,21 +10,23 @@ class Solution
     public:
     void sort012(int arr[], int n)
     {
-         int one=0,two=0,zero=0;
-         for(int i=0;i<n;i++)
-         {
-             if(arr[i]==0)
-             zero++;
-             else if(arr[i]==1)
-             one++;
-             else two++;
-         }
-         for(int i=0;i<zero;i++)
-         arr[i]=0;
-         for(int i=zero;i<zero+one;i++)
-         arr[i]=1;
-         for(int i=zero+one;i<n;i++)
-         arr[i]=2;
+        int lo=0,mid=0,high=n-1;
+        while(mid<=high)
+        {
+            if(arr[mid]==0)
+            {
+                swap(arr[mid],arr[lo]);
+                lo++;
+                mid++;
+            }
+            else if(arr[mid]==1)
+            mid++;
+            else
+            {
+                swap(arr[mid],arr[high]);
+                high--;
+            }
+        }
     }
     
 };
