@@ -7,7 +7,7 @@ public:
         if(target==0)
         {
             ans.push_back(ds);
-            // return ;
+            return ;
         }
         for(int i=start;i<can.size();i++)
         {
