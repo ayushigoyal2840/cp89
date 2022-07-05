@@ -87,27 +87,26 @@ Node* buildTree(string str)
 //Function to count number of nodes in BST that lie in the given range.
 class Solution{
 public:
-vector<int> inorder;
-     void in(Node * root)
-     {
-         if(root)
-         {
-             in(root->left);
-             inorder.push_back(root->data);
-             in(root->right);
-         }
-     }
+vector<int>res;
+void inorder(Node *root)
+{
+    if(root)
+    {
+        inorder(root->left);
+        res.push_back(root->data);
+        inorder(root->right);
+    }
+}
     int getCount(Node *root, int l, int h)
     {
-        in(root);
-        int ans=0;
-        for(int i=0;i<inorder.size();i++)
-        {
-            if(inorder[i]>=l and inorder[i]<=h)
-            ans++;
-        }
-        return ans;
-      // your codegoes here   
+      inorder(root);
+      int c=0;
+      for(int i=0;i<res.size();i++)
+      {
+          if(res[i]>=l and res[i]<=h)
+          c++;
+      }
+      return c;
     }
 };
 
