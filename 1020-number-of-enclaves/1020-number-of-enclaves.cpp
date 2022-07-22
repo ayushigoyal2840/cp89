@@ -8,7 +8,7 @@ public:
             return ;
         vis[i][j]=true;
         tot+=1;
-        cout<<"hi"<<'\n';
+        // cout<<"hi"<<'\n';
         dfs(i,j+1,n,m,grid,vis);
         dfs(i,j-1,n,m,grid,vis);
         dfs(i-1,j,n,m,grid,vis);
@@ -22,7 +22,7 @@ public:
             return ;
         vis[i][j]=true;
         count+=1;
-        cout<<"hi"<<'\n';
+        // cout<<"hi"<<'\n';
         dfss(i,j+1,n,m,grid,vis);
         dfss(i,j-1,n,m,grid,vis);
         dfss(i-1,j,n,m,grid,vis);
