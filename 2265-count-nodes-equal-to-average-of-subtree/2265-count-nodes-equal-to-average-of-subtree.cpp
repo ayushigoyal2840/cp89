@@ -11,40 +11,25 @@
  */
 class Solution {
 public:
-    int c=0;
-    vector<int>ans;
-    int sum=0;
-    void inorder(TreeNode* root)
+    int ans =0;
+    pair<int,int>solve(TreeNode* root)
     {
-        if(root)
-        {
-            c++;
-            inorder(root->left);
-            sum+=root->val;
-            inorder(root->right);
-        }
-    }
-    int ff(TreeNode* root)
-    {
-        if(root)
-            inorder(root);
+        if(root==NULL)
+            return {0,0};
+        auto left=solve(root->left);
+        int lsum=left.first;
+        int lcount=left.second;
+        auto right = solve(root->right);
+        int rsum=right.first;
+        int rcount=right.second;
+        int sum=root->val+lsum+rsum;
+        int cnt = lcount+rcount+1;
+        if(sum/cnt==root->val) ans++;
+        return {sum,cnt};
         
-        
-        int get=sum/c;
-        // cout<<sum<<endl;
-        sum=0;
-        c=0;
-        return get;
     }
-    int count=0;
     int averageOfSubtree(TreeNode* root) {
-        if(root)
-        {
-            if(root->val == ff(root))
-                count++;
-            averageOfSubtree(root->left);
-            averageOfSubtree(root->right);
-        }
-        return count;
+        solve(root);
+        return ans;
     }
 };
