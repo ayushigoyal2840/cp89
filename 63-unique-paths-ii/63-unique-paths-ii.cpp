@@ -3,17 +3,18 @@ public:
     vector<vector<int>>dp;
     int f(int i,int j,vector<vector<int>>& o,vector<vector<int>>& dp)
     {
+        if(i<0 or j<0)
+            return 0;
         if(o[i][j]==1)
             return 0;
         if(i==0 and j==0)
             return 1;
         if(dp[i][j]!=-1)
             return dp[i][j];
-        if(i<0 or j<0)
-            return 0;
+        
         int up=0,down=0;
-       if(i>0)  up = f(i-1,j,o,dp);
-       if(j>0)  down = f(i,j-1,o,dp);
+       up = f(i-1,j,o,dp);
+         down = f(i,j-1,o,dp);
         return dp[i][j]=up+down;
     }
     int uniquePathsWithObstacles(vector<vector<int>>& o) {
