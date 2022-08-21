@@ -13,11 +13,21 @@ class Solution {
 public:
     
     bool hasPathSum(TreeNode* root, int target) {
-       if(!root) return false;
-        target-=root->val;
-        if(target==0 and (!root->left and !root->right)) return true;
-        return (hasPathSum(root->left,target) or hasPathSum(root->right,target));
-
+        if(!root) return false;
+     stack<pair<TreeNode*,int>>stk;
+        stk.push({root,target});
+        
+        while(!stk.empty())
+        {
+            auto [node,sum]=stk.top();
+            stk.pop();
+            sum-=node->val;
+            if(sum==0 and (!node->left and !node->right))
+                return  true;
+            if(node->left) stk.push({node->left,sum});
+            if(node->right) stk.push({node->right,sum});
+        }
+        return false;
         
     }
 };
