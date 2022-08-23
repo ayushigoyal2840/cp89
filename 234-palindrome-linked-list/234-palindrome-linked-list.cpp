@@ -10,19 +10,19 @@
  */
 class Solution {
 public:
+    ListNode* temp;
+    bool ischeck(ListNode* p)
+    {
+        if(p==NULL) return true;
+       bool ans = ischeck(p->next) and (p->val == temp->val);
+           temp=temp->next;
+        return ans;
+                
+        
+        
+    }
     bool isPalindrome(ListNode* head) {
-        vector<int>v;
-        ListNode* temp = head;
-        while(temp!=NULL)
-        {
-            v.push_back(temp->val);
-            temp=temp->next;
-        }
-        vector<int>s;
-        s=v;
-        reverse(s.begin(),s.end());
-        if(s==v)
-            return true;
-        return false;
+        temp=head;
+        return ischeck(head);
     }
 };
