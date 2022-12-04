@@ -6,7 +6,7 @@ using namespace std;
 // } Driver Code Ends
 class Solution{
     public:
-   string rearrange (string s, int n)
+    string rearrange (string s, int n)
     {
         // your code here
         vector<int> mp1(26),mp2(26); // to store vowels and consonants
