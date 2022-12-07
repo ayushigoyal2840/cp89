@@ -92,7 +92,7 @@ struct Node {
 */
 
 class Solution {
-  private:
+ private:
         int numOfIterations = 0;
         int k;
         int ans = -1;
