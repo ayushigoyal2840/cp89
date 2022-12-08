@@ -6,7 +6,7 @@ using namespace std;
 class Solution
 {
 public:
-    vector<int> threeDivisors(vector<long long> query, int q)
+   vector<int> threeDivisors(vector<long long> query, int q)
     {
         vector<int> ans; 
         auto isPrime = [&] (long long num){
