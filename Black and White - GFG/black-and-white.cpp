@@ -19,8 +19,6 @@ int main() {
 // } Driver Code Ends
 
 
-//Function to find out the number of ways we can place a black and a 
-//white Knight on this chessboard such that they cannot attack each other.
 #define ll long long
 const int mod = 1e9+7;
 
