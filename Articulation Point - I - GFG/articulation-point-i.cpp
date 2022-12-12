@@ -9,7 +9,7 @@ using namespace std;
 
 class Solution {
   public:
-    void solve(int node,vector<int>&dis,vector<int>&low,vector<bool>&vis,int par,vector<int>adj[],int &timer,vector<int>&art){
+     void solve(int node,vector<int>&dis,vector<int>&low,vector<bool>&vis,int par,vector<int>adj[],int &timer,vector<int>&art){
 
         
 
