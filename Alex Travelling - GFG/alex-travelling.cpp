@@ -8,7 +8,7 @@ using namespace std;
 // User function Template for C++
 class Solution {
   public:
-    int minimumCost(vector<vector<int>>& flights, int n, int k) {
+   int minimumCost(vector<vector<int>>& flights, int n, int k) {
 
         // code here
 
