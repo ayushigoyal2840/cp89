@@ -10,8 +10,7 @@ using namespace std;
 
 class Solution{
 public:
-    //Function to count subarrays with sum equal to 0.
-    long long int findSubarray(vector<long long int> &arr, int n ) {
+   long long int findSubarray(vector<long long int> &arr, int n ) {
 
         //code here
 
