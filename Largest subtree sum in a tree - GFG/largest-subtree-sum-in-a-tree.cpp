@@ -81,7 +81,7 @@ Node* buildTree(string str) {
 
 class Solution {
   public:
-    public:
+     public:
 
     // Function to find largest subtree sum.
 
