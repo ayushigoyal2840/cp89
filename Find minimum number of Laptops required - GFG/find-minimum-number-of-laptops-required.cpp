@@ -10,6 +10,7 @@ using namespace std;
 
 class Solution {
   public:
+    public:
     int minLaptops(int n, int start[], int end[]) {
         map<int,int>mp;
         for(int i=0;i<n;i++)
