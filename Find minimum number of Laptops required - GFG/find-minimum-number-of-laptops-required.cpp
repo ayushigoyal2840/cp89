@@ -9,8 +9,7 @@ using namespace std;
 //User function Template for C++
 
 class Solution {
-  public:
-    public:
+   public:
     int minLaptops(int n, int start[], int end[]) {
         map<int,int>mp;
         for(int i=0;i<n;i++)
