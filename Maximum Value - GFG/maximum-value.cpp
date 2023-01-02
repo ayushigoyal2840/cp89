@@ -27,21 +27,20 @@ class Solution {
   public:
     vector<int> maximumValue(Node* node) {
         //code here
-        queue<Node*> q;
+         vector<int>res;
+        queue<Node*>q;
         q.push(node);
-        vector<int>res;
-        while(q.size()) {
-            int sz=q.size();
+        while(q.size()){
+            int a=q.size();
             int mx=0;
-            while(sz--)
+            while(a--)
             {
                 node=q.front();
-                mx=max(mx,node->data);
-                if(node->left)
-                q.push(node->left);
-                if(node->right)
-                q.push(node->right);
-                
+                mx=max(mx,q.front()->data);
+                if(q.front()->left)
+                q.push(q.front()->left);
+                if(q.front()->right)
+                q.push(q.front()->right);
                 q.pop();
             }
             res.push_back(mx);
