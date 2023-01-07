@@ -46,7 +46,7 @@ struct Node{
 
 class Solution {
 public:
-    Node* merge(Node* root1 , Node* root2)
+   Node* merge(Node* root1 , Node* root2)
 
 {
 
