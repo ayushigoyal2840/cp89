@@ -103,7 +103,7 @@ struct Node
 }; */
 
 class Solution {
- int dfs(Node *node){
+  int dfs(Node *node){
         if(!node)return 0;
         
         int left=dfs(node->left);
