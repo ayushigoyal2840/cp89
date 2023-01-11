@@ -6,10 +6,10 @@ using namespace std;
 
 // } Driver Code Ends
 // User function Template for C++
-#define ll long long
+#define ll long long 
 class Solution {
   public:
-  long long int minIncrements(vector<int> arr, int N) {
+    long long int minIncrements(vector<int> arr, int N) {
         // Code here
         sort(arr.begin(),arr.end());
         ll ans =0;
