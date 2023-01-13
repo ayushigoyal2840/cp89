@@ -9,7 +9,7 @@ using namespace std;
 
 class Solution {
   public:
-   long long int luckyPermutations(int N, int M, vector<int> arr,
+    long long int luckyPermutations(int N, int M, vector<int> arr,
                                     vector<vector<int>> graph) {
         
         // Creating adjacency matrix, adj
