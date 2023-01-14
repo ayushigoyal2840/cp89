@@ -1,49 +1,57 @@
 #User function Template for python3
 
-from itertools import accumulate
-class Solution:
-    def maximumToys(self,N,A,Q,Queries):
-        def _count_consecutive():
-            Con = [1]*N
-            c = 1
-            for i in range(1, N):
-                if S[i] != S[i-1]: c=1; continue
-                c+=1
-                Con[i] = c
-            return Con
-        
-        def _calc_cost(m):
-            sum_cost = Acc[m]
-            Concnt = Con[m]
-            mv = S[m]
-            skip_cnt = same_val_cnt = 0
-            for skip in skips:
-                if skip < mv:
-                    sum_cost -= skip
-                    skip_cnt += 1
-                elif skip == mv and same_val_cnt < Concnt:
-                    sum_cost -= skip
-                    skip_cnt += 1
-                    same_val_cnt += 1
-                else:
-                    break
-            return sum_cost, skip_cnt
-            
-        S = sorted(A)
-        Con = _count_consecutive()
-        Acc = list(accumulate(S))
-        ans = []
-        for q in Queries:
-            C, skips = q[0], sorted([ A[i-1] for i in q[2:] ])
-            L, R, skip_cnt = 0, N-1, 0
-            while L<=R:
-                m = (L+R)//2
-                v, skip_cnt = _calc_cost(m)
-                if v <= C: L = m+1
-                elif v > C: R = m-1
-            ans.append(R+1-skip_cnt)
-        return ans
+from collections import Counter
+class Fenwick:
+    def __init__(self, n):
+        self.tree = [0] * n
+        self.F = lambda x: x&(x+1)
+        self.H = lambda x: x|(x+1)
+    
+    def update(self, ind, delta):
+        while ind < len(self.tree):
+            self.tree[ind] += delta
+            ind = self.H(ind)
+    
+    def query(self, ind):
+        res = 0
+        while ind >= 0:
+            res += self.tree[ind]
+            ind = self.F(ind) - 1
+        return res
 
+class Solution:
+    def maximumToys(self, n, A, Q, Queries):
+        mx = max(A)
+        counter = Counter(A)
+        #count stores frequencey and csum stores cumulative sum
+        count, csum = Fenwick(mx+1), Fenwick(mx+1)
+        
+        for a in A:
+            count.update(a, 1)
+            csum.update(a, a)
+
+        res = []
+        for q in Queries:
+            c = q[0]
+            for b in q[2:]:
+                count.update(A[b-1], -1)
+                csum.update(A[b-1], -A[b-1])
+            
+            lo, hi = 0, mx
+            while lo < hi:
+                mid = lo + (hi - lo + 1)//2
+                if csum.query(mid) > c:
+                    hi = mid - 1
+                else:
+                    lo = mid
+            # Take all elements <= lo and some occurences of lo+1       
+            res.append(count.query(lo) + min((c - csum.query(lo))//(lo+1), counter[lo+1]))
+            
+            for b in q[2:]:
+                count.update(A[b-1], 1)
+                csum.update(A[b-1], A[b-1])
+        
+        return res
 
 #{ 
  # Driver Code Starts
