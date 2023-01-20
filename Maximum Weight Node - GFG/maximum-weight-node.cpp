@@ -8,7 +8,7 @@ using namespace std;
 class Solution
 {
   public:
- int maxWeightCell(int n, vector<int> Edge)
+  int maxWeightCell(int n, vector<int> Edge)
 
  
 
