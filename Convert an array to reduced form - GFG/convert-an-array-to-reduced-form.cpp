@@ -8,7 +8,8 @@ using namespace std;
 //User function template for C++
 class Solution{
 public:	
-		int binarySearch(int arr[], int l, int r, int x)
+	// Converts arr[0..n-1] to reduced form.
+	int binarySearch(int arr[], int l, int r, int x)
 {
     if (r >= l) {
         int mid = l + (r - l) / 2;
