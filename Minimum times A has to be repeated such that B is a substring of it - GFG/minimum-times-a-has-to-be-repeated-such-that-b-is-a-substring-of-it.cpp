@@ -7,7 +7,8 @@ using namespace std;
 //User function Template for C++
 
 class Solution {
-    public:
+  public:
+      public:
 
     int minRepeats(string A, string B) {
 
